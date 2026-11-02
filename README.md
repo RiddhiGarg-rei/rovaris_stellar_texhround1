@@ -8,7 +8,7 @@ Code: https://github.com/riddhigarg-rei/rovaris_stellar_texhround1
 # Rovaris Rover Run
 A side-scrolling rover obstacle course game built for **Task 3: Build an event-themed game**, inspired by the **Rovaris** rover theme.
 
-**Author:** _Your Name_ · _Reg. No._ · VIT
+**Author:**RIDDHI GARG · 26BCE2064 · VIT
 
 ---
 
@@ -67,7 +67,7 @@ Drive your rover across the Martian surface to the **base camp** at the end of e
 ## Project structure
 
 ```
-rovaris-rover.html   – the complete game (HTML, CSS and JavaScript)
+index.html   – the complete game (HTML, CSS and JavaScript)
 README.md            – this file
 screenshots/         – gameplay screenshots
 ```
@@ -95,6 +95,32 @@ _Demo video (optional): add a link or file name here._
 - **Audio:** sound effects are generated in code with the Web Audio API. No audio files.
 - **Fonts:** system fonts only.
 - **Development:** vibecoding
+
+
+
+## What works
+
+- Driving with momentum and low-gravity style jumping
+- Collisions with rocks (hull damage and knock-back) and craters (hull damage and moved back)
+- Hull and battery system: the battery drains faster at higher speed, and solar stations recharge it
+- Crystal pickups and solar stations, with score and pop-up messages
+- Sectors that get longer, faster and have more craters
+- Results screen after each sector, with Next sector and Retry, plus restart with `R`
+- Best score saved in the browser with localStorage
+- Sound effects generated in code, with screen shake and dust effects
+- Runs offline from a single `index.html` file, and is live on GitHub Pages
+- Tested in: Chrome 
+- Touch controls: built but not tested on a real phone
+
+## What is incomplete or not working
+
+- No pause button and no sound on/off toggle
+- Graphics are 2D and drawn in code, so there are no sprites or image assets
+- Sectors are generated from a fixed seed, so a sector is identical every retry and there is no random mode
+- The best score is saved only in the browser you played on, so it is lost if you clear site data and is not shared between devices
+- No online leaderboard and no save of progress between sessions (only the best score is kept)
+- Difficulty in later sectors has not been balanced beyond my own playtesting
+- Not tested on small phone screens, safari,edge
 
 ## Possible future improvements
 
