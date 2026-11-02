@@ -1,5 +1,11 @@
 # Rovaris Rover Run
+## Play the game
 
+Live link: https://riddhigarg-rei.github.io/rovaris_stellar_texhround1/
+
+Code: https://github.com/riddhigarg-rei/rovaris_stellar_texhround1
+
+# Rovaris Rover Run
 A side-scrolling rover obstacle course game built for **Task 3: Build an event-themed game**, inspired by the **Rovaris** rover theme.
 
 **Author:** _Your Name_ · _Reg. No._ · VIT
