@@ -1,84 +1,98 @@
-# rovaris_stellar_texhround1
-# Rovaris Run – Mars Sample Mission
+# Rovaris Rover Run
 
-A browser-based rover obstacle game built for **Task 3: Build an event-themed game**, based on the **Rovaris** event.
+A side-scrolling rover obstacle course game built for **Task 3: Build an event-themed game**, inspired by the **Rovaris** rover theme.
 
-**Play online:** https://claude.ai/artifact/RpgQKLmELwuuUtfsTbCSez
+**Author:** _Your Name_ · _Reg. No._ · VIT
 
-## Concept and event theme
-
-Rovaris is a rover-themed event, so the game puts you in control of a Mars rover on a science mission. The theme shapes the setting, the objective, and the core mechanic:
-
-- **Setting:** a Martian surface with rocky mountains, craters, red dust, and the moon Phobos in the sky.
-- **Objective:** a rover's mission is to gather samples while staying powered, so the game is built around collecting samples and managing battery.
-- **Gameplay:** the rover drives automatically. You time jumps to clear terrain hazards and grab floating samples.
+---
 
 ## Objective
 
-Collect **15 samples** to complete the mission. The battery drains constantly, and the mission ends when it reaches 0%. After completing the mission you can keep driving to beat your best score.
+Drive your rover across the Martian surface to the **base camp** at the end of each sector. Keep your **hull** intact and your **battery** charged, and collect crystal samples for extra points.
+
+## How the Rovaris theme shapes the gameplay
+
+- **Setting:** a Martian terrain with craters, rocks and a distant base camp.
+- **Rover mechanics:** the rover drives with momentum, and jumps in low-gravity style.
+- **Resource management:** the battery drains faster the faster you drive, so you must plan your speed and reach solar stations in time.
+- **Exploration:** collecting crystal samples rewards risky jumps.
 
 ## Controls
 
-| Action | Keyboard | Touch / Mouse |
+| Action | Keyboard | Touch |
 |---|---|---|
-| Jump (hold for a higher jump) | `Space`, `↑`, or `W` | Tap / click the game screen |
-| Start / Restart | `Enter` or `R` | Click the **Start / Restart** button, or tap after game over |
-| Mute / unmute sound | `M` | Click the **Sound** button |
+| Drive forward | `→` or `D` | ▶ button |
+| Reverse | `←` or `A` | ◀ button |
+| Jump | `Space`, `↑` or `W` | ⤒ button |
+| Restart sector | `R` | – |
+| Start / next sector / retry | `Space`, `Enter` or the on-screen button | tap button |
 
-## Rules and hazards
+## Rules and scoring
 
 | Element | Effect |
 |---|---|
-| Sample (cyan crystal) | +1 sample, +25 score, +10% battery |
-| Rock | -25% battery on collision |
-| Crater | -25% battery if you drive into it, so jump over it |
-| Flying dust debris | -25% battery on collision |
-| Time / distance | Battery drains continuously; speed increases the further you go |
+| Rock | Hit it: −1 hull and a knock-back. Jump over it. |
+| Crater | Fall in: −1 hull and you are moved back. Jump across it with enough speed. |
+| Crystal sample (cyan) | +50 points |
+| Solar station (⚡) | +35% battery, +25 points |
+| Reaching base camp | Bonus for remaining battery, remaining hull and speed |
 
-After a hit the rover blinks and is briefly invulnerable.
+**You lose** when the hull reaches 0 or the battery runs out and the rover stops.
+**You win a sector** by reaching the base camp. Each next sector is longer, faster and has more craters.
 
-## Feedback on progress and score
+## Feedback shown on screen
 
-- **HUD:** live score, samples collected (x/15), best score, and a colour-coded battery bar (green, yellow, red).
-- **Screen flash** and a **sound effect** on every hit or sample pickup.
-- A **"Mission Complete"** banner appears at 15 samples.
-- **End screen** shows score, samples collected, and best score.
-- The **best score** is saved in the browser (`localStorage`) when available.
-
-**Score formula:** `distance / 10 + 25 × samples`
-
-## Restart / replay
-
-Press `Enter` or `R` at any time, use the **Start / Restart** button, or tap/press jump on the game-over screen to start a new run instantly.
+- Score, sector number, hull hearts, battery bar, samples collected and best score
+- A progress bar showing the distance to the base
+- Pop-up messages for pickups and crashes, plus dust, screen shake and sound effects
+- A results screen after each sector, with **Next sector** or **Retry**
+- The best score is saved in the browser (localStorage)
 
 ## How to run
 
-**Option 1 – Online:** open the link above.
+**No installation or internet is needed.**
 
-**Option 2 – Locally:**
-1. Download `rovaris-run.html`.
-2. Double-click it to open in any modern browser (Chrome, Edge, Firefox, Safari).
-3. No installation, server, or internet connection is needed.
+1. Download or copy the project folder.
+2. Double-click `rovaris-rover.html` (or `index.html` if you renamed it). It opens in Chrome, Edge or Firefox.
+3. Click **Launch** (or press `Space`) and start driving.
 
-## Screenshots / demo
+**Optional (VS Code):** open the folder in VS Code, install the *Live Server* extension, right-click the HTML file and choose *Open with Live Server*.
 
-Add your screenshots or recording here:
+## Project structure
 
-- `screenshots/start.png` – start screen
-- `screenshots/gameplay.png` – mid-game with HUD
-- `screenshots/mission-complete.png` – end screen
-- Demo video (optional): _link_
+```
+rovaris-rover.html   – the complete game (HTML, CSS and JavaScript)
+README.md            – this file
+screenshots/         – gameplay screenshots
+```
 
-## Technology
+## Screenshots
 
-- HTML5, CSS, and vanilla JavaScript in a single file
-- HTML5 Canvas API for all rendering
-- Web Audio API for generated sound effects
+| Start screen | Gameplay | Result screen |
+|---|---|---|
+| ![Start](screenshots/start.png) | ![Gameplay](screenshots/gameplay.png) | ![Result](screenshots/result.png) |
+
+_Demo video (optional): add a link or file name here._
+
+## Technical notes
+
+- Built with plain **HTML, CSS and JavaScript**, with graphics drawn on an HTML5 `<canvas>`.
+- The game runs in a `requestAnimationFrame` loop with separate update and draw steps.
+- The course is generated from a seed for each sector, so a sector is the same every time you retry it.
+- Collisions use simple rectangle and range checks.
+- The screen layout adapts to the window size, and there are touch controls for phones.
 
 ## Credits
 
-- **Code, game design, and graphics:** original work, with no external libraries or frameworks.
-- **Images:** none used. All visuals are drawn with Canvas shapes.
-- **Audio:** no audio files. Sounds are synthesised in the browser with the Web Audio API.
-- **Fonts:** default system fonts.
-- **Event theme:** Rovaris.
+- **Libraries:** none. No external libraries or frameworks were used.
+- **Graphics:** all drawn in code with the Canvas API. No image files.
+- **Audio:** sound effects are generated in code with the Web Audio API. No audio files.
+- **Fonts:** system fonts only.
+- **Development:** vibecoding
+
+## Possible future improvements
+
+- A 3D version using Three.js
+- More obstacle types (sandstorms, moving hazards)
+- Sound toggle and a pause button
+- An online leaderboard
